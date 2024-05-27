@@ -1,3 +1,4 @@
+import pytest
 from calculator.calculator import Calculator
 
 class TestCalculator:
@@ -52,3 +53,12 @@ class TestCalculator:
         # assert
         expected = 2
         assert result == expected
+    def test_divide_by_zero(self):
+        # arrange
+        a = 10
+        b = 0
+        cal = Calculator()
+
+        # act/assert
+        with pytest.raises(ZeroDivisionError):
+            cal.divide(a, b)
